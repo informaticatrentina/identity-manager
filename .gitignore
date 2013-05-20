@@ -1,0 +1,7 @@
+*.pyc
+/.coverage
+/IdentityManager.egg-info/
+/aggregator.egg-info/
+/build/
+/dist/
+/docs/build/
