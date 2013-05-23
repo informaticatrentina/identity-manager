@@ -18,15 +18,20 @@ The manager of “Identity Manager”
 
 from flask.ext.script import Manager, Server
 from IdentityManager import app
+from IdentityManager.load_initial_data import LoadData
 
 manager = Manager(app)
 
 # Turn on debugger by default and reloader
 manager.add_command("runserver", Server(
+    port=8001,
     use_debugger=True,
     use_reloader=True,
     host='0.0.0.0')
 )
+
+# Add data loading
+manager.add_command('load_demo_data', LoadData())
 
 
 def main():
