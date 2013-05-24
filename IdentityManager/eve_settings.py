@@ -107,6 +107,8 @@ users = {
             'lastname': 1,
             'email': 1,
             'born': 1,
+            'created': 1,
+            'updated': 1,
         },
     },
 }
