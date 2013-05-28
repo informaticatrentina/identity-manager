@@ -133,6 +133,13 @@ Requirements:
     sudo apt-get install uwsgi uwsgi-plugin-python
 
 
+Loading the initial data: to load arbitrary data, in the virtualenv you can run:
+
+.. code:: sh
+
+    im load_demo_data --from-file FILE.json
+
+
 Example for running the app:
 
 .. code:: sh
@@ -160,5 +167,3 @@ Example for nginx.conf::
 
 Optionally we can also start and manage uwsgi with supervisor(d).
 
-
-TODO: how to load initial production configuration?
