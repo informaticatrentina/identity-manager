@@ -1,8 +1,8 @@
 .. -*- coding: utf-8 -*-
 
-===============
+========================
 identity manager project
-===============
+========================
 
 The ``identity manager project`` is an identity manager project to show the
 development practices currenlty in use in <ahref.
