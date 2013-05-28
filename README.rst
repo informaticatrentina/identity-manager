@@ -144,11 +144,14 @@ Example for running the app:
 
 .. code:: sh
 
-    IM_SETTINGS=/srv/web/identitymanager/etc/config.py \
     uwsgi_python \
+	--env IM_SETTINGS=/srv/web/identitymanager/etc/config.py \
         --socket /var/run/identity-uwsgi.sock \
         --module IdentityManager:app \
         --virtualenv /home/daniele/ahref/ve/identitymanager1/
+
+We use the best practices with the environment variable IM_SETTINGS:
+http://flask.pocoo.org/docs/config/#development-production
 
 Example for nginx.conf::
 

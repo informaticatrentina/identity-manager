@@ -22,7 +22,7 @@ import pkg_resources
 pkg_resources.declare_namespace(__name__)
 
 
-from os import path
+from os import environ, path
 
 from eve import Eve
 from eve.auth import TokenAuth
@@ -48,8 +48,12 @@ if (
 ):
     eve_settings_file = eve_settings_module[:-1]
 
+# IM_SETTINGS become EVE_SETTINGS
+if 'IM_SETTINGS' in environ:
+    environ['EVE_SETTINGS'] = environ['IM_SETTINGS']
+    del environ['IM_SETTINGS']
+
 app = Eve(auth=MyBasicAuth, settings=eve_settings_file)
-app.config.from_object('IdentityManager.local_settings')
 
 
 if __name__ == '__main__':
