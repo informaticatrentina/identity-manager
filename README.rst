@@ -117,3 +117,48 @@ Manage command
 
 For convenience other flask related commands are available, just run ``im``
 to see the list.
+
+
+Instructions for the system administrator
+=========================================
+
+
+Deploy
+------
+
+Requirements:
+
+.. code:: sh
+
+    sudo apt-get install uwsgi uwsgi-plugin-python
+
+
+Example for running the app:
+
+.. code:: sh
+
+    IM_SETTINGS=/srv/web/identitymanager/etc/config.py \
+    uwsgi_python \
+        --socket /var/run/identity-uwsgi.sock \
+        --module IdentityManager:app \
+        --virtualenv /home/daniele/ahref/ve/identitymanager1/
+
+Example for nginx.conf::
+
+    http {
+	server {
+	    listen 8001;
+	    server_name identity-manager.be.ahref.eu;
+	    location / { try_files $uri @identitymanager; }
+	    location @identitymanager {
+		include /etc/nginx/uwsgi_params;
+		uwsgi_pass unix:/var/run/identity-uwsgi.sock;
+	    }
+	}
+    }
+
+
+Optionally we can also start and manage uwsgi with supervisor(d).
+
+
+TODO: how to load initial production configuration?
