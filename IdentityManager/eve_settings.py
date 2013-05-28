@@ -20,7 +20,7 @@ MONGO_HOST = 'localhost'
 MONGO_PORT = 27017
 MONGO_USERNAME = None  # 'user'
 MONGO_PASSWORD = None  # 'user'
-MONGO_DBNAME = 'apitest2'
+MONGO_DBNAME = 'identitymanager'
 
 # let's not forget the API entry point
 SERVER_NAME = 'localhost:8001'
