@@ -23,8 +23,11 @@ This guide assumes that you develop the ``identity manager project`` on a
 
 .. code:: sh
 
-    sudo apt-get install python-virtualenv \
-    mongodb-server
+    sudo apt-get install \
+    mongodb-server \
+    python-virtualenv \
+    python2.7-dev
+
 
 
 Virtualenv
