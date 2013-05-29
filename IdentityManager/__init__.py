@@ -32,7 +32,7 @@ from IdentityManager import eve_settings
 
 # TODO: move to a proper file
 class MyBasicAuth(TokenAuth):
-    def check_auth(self, token, allowed_roles):
+    def check_auth(self, token, allowed_roles, resource=None):
         apps = app.data.driver.db['apps']
         return apps.find_one({'token': token})
 
