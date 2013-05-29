@@ -15,6 +15,13 @@
 Eve settings
 '''
 
+# Log file
+LOG_FILE = '/tmp/identity-manager.log'
+
+# Debug: set False in production!
+DEBUG = True
+
+# Database
 
 MONGO_HOST = 'localhost'
 MONGO_PORT = 27017
