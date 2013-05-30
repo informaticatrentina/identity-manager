@@ -41,6 +41,11 @@ class LoadData(Command):
 
         data_json = load(open(data_file))
 
-        # TODO: with direct insertion there is no check for uniqueness
-        ret = apps.insert(data_json)
-        print "data loaded as %s" % ret
+        # TODO: minimal check for uniqueness
+        res = app.data.driver.db['apps'].find({'name': data_json['name']})
+
+        if not res.count():
+            ret = apps.insert(data_json)
+            print "INFO: data loaded as %s" % ret
+        else:
+            print "ERROR: data already present"
