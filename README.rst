@@ -126,6 +126,36 @@ Instructions for the system administrator
 =========================================
 
 
+Build
+-----
+
+To build the sdist of the python package run:
+
+.. code:: sh
+
+    python setup.py sdist
+
+This will produce a python source package into the directory ``dist`` complete
+with the version name, e.g.: ``IdentityManager-0.0.0.1.tar.gz``.
+
+You can install the package and the dependencies into a virtualenv using:
+
+.. code:: sh
+
+    pip install path/to/IdentityManager-0.0.0.1.tar.gz
+
+
+Icing (not yet done)
+++++++++++++++++++++
+
+Ideally the sdist package is uploaded in a ``pypi`` repository running
+internally a software like `https://pypi.python.org/pypi/pypiserver
+<pypiserver>`_.
+
+In this way the build and deploy procedure will be loosely coupled.
+
+
+
 Deploy
 ------
 
