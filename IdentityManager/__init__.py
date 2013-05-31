@@ -64,12 +64,12 @@ def conf_logging(app):
         file_handler = RotatingFileHandler(app.config['LOG_FILE'],
                                            maxBytes=1024 * 1024 * 100,
                                            backupCount=31)
-        file_handler.setLevel(logging.DEBUG)
+        file_handler.setLevel(logging.INFO)
         formatter = logging.Formatter("%(asctime)s - %(name)s - "
                                       "%(levelname)s - %(message)s")
         file_handler.setFormatter(formatter)
         app.logger.addHandler(file_handler)
-        app.logger.setLevel(logging.DEBUG)
+        app.logger.setLevel(logging.INFO)
 
 
 conf_logging(app)
