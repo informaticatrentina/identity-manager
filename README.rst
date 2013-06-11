@@ -122,6 +122,19 @@ For convenience other flask related commands are available, just run ``im``
 to see the list.
 
 
+Source code management
+----------------------
+
+We use ``git`` to manage the source code.  The main development of the
+application will be done in the branch named ``devel``.  When a new release is
+ready the developer must:
+
+- Bump the version number in the file ``version.txt``
+- Tag with a lightweight tag the bump version commit
+- Merge the ``develop`` branch in ``master``
+- Push the ``master`` branch, including the tags
+
+
 Instructions for the system administrator
 =========================================
 
