@@ -126,13 +126,46 @@ Source code management
 ----------------------
 
 We use ``git`` to manage the source code.  The main development of the
-application will be done in the branch named ``devel``.  When a new release is
-ready the developer must:
+application will be done in the branch named ``devel``.  The number of the
+version is: <major>.<minor>.<patch>.<build>.
+
+When a new release is ready the developer must increase at least the patch level
+(we do not have a automatic builder/continuous integration system that use the
+build number):
 
 - Bump the version number in the file ``version.txt``
 - Tag with a lightweight tag the bump version commit
 - Merge the ``develop`` branch in ``master``
 - Push the ``master`` branch, including the tags
+
+For example to bump the version to ``0.0.1.0``, assuming that we start in the
+``develop`` branch:
+
+.. code:: sh
+
+    NEW_VERSION="0.0.1.0"
+    printf "%s" "${NEW_VERSION}" > version.txt
+    git add version.txt
+    git commit -m "Bump version to ${NEW_VERSION}"
+    git tag v"${NEW_VERSION}"
+    git checkout master
+    git merge develop
+    git push
+    git push --tags
+
+
+Starting with git 1.8.3 the last two command can be replaced with:
+
+.. code:: sh
+
+    git push --follow-tags
+
+
+Later you can start to develop again in develop:
+
+.. code:: sh
+
+    git checkout develop
 
 
 Instructions for the system administrator
