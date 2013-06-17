@@ -22,12 +22,21 @@ configuration manager and loaded using the ``IM_SETTINGS`` environment
 variable.
 """
 
+# Debug: set False in production!
+DEBUG = True
+
 # MongoDB
-MONGODB_HOST = 'localhost'
-MONGODB_PORT = 27017
-MONGODB_DATABASE = 'DATABASE'
-MONGODB_USERNAME = 'USERNAME'
-MONGODB_PASSWORD = 'PASSWORD'
+MONGO_HOST = 'localhost'
+MONGO_PORT = 27017
+MONGO_USERNAME = 'USERNAME'
+MONGO_PASSWORD = 'PASSWORD'
+MONGO_DBNAME = 'DATABASE'
+
+# let's not forget the API entry point as domain.example.com:port
+SERVER_NAME = 'URL'
+
+# api version
+API_VERSION = 'v1'
 
 # Logs
 LOG_FILE = 'PATH'
