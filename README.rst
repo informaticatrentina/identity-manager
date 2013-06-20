@@ -149,7 +149,7 @@ For example to bump the version to ``0.0.1.0``, assuming that we start in the
     git commit -m "Bump version to ${NEW_VERSION}"
     git tag v"${NEW_VERSION}"
     git checkout master
-    git merge develop
+    git merge develop --ff-only
     git push
     git push --tags
 
@@ -159,6 +159,17 @@ Starting with git 1.8.3 the last two command can be replaced with:
 .. code:: sh
 
     git push --follow-tags
+
+
+You can check that the braches are aligned with:
+
+.. code:: sh
+
+    DEVEL_HASH=`git log --format=%h -n1 origin/develop`
+    MASTER_HASH=`git log --format=%h -n1 origin/master`
+    test "X${DEVEL_HASH}" = "X${MASTER_HASH}" || \
+    printf "WARNING: something went wrong\n" && \
+    printf "NOTICE: heads of the branches OK\n"
 
 
 Later you can start to develop again in develop:
