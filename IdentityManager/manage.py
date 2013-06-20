@@ -20,6 +20,7 @@ from flask.ext.script import Manager, Server
 from IdentityManager import app
 from IdentityManager.load_initial_data import LoadData
 from IdentityManager.test_db_connection import TestConnection
+from IdentityManager.dump_config import DumpConf
 
 manager = Manager(app)
 
@@ -36,6 +37,9 @@ manager.add_command('load_demo_data', LoadData())
 
 # Add test db connection
 manager.add_command("testdb", TestConnection())
+
+# Add dump configuration
+manager.add_command("dumpconfig", DumpConf())
 
 
 def main():
