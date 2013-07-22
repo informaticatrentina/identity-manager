@@ -22,6 +22,7 @@ from IdentityManager import app
 from IdentityManager.load_initial_data import LoadData
 from IdentityManager.test_db_connection import TestConnection
 from IdentityManager.dump_config import DumpConf
+from IdentityManager.show_users import ShowUsers
 
 manager = Manager(app)
 
@@ -41,6 +42,9 @@ manager.add_command("testdb", TestConnection())
 
 # Add dump configuration
 manager.add_command("dumpconfig", DumpConf())
+
+# Add show users
+manager.add_command("showusers", ShowUsers())
 
 
 def main():
