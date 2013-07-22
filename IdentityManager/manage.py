@@ -14,6 +14,7 @@
 '''
 The manager of “Identity Manager”
 =================================
+
 '''
 
 from flask.ext.script import Manager, Server
