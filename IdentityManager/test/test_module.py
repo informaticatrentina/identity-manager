@@ -15,20 +15,13 @@
 Test for identity manager module
 '''
 
-# unittest2 offers TestCase.assertMultiLineEqual that provide a nice
-# diff output, sometimes it is called automagically by the old
-# assertEqual
-
-try:
-    import unittest2 as unittest
-except ImportError:
-    # NOQA
-    import unittest
 
 from nose.plugins.skip import SkipTest
 
+from eve.tests import TestMinimal
 
-class ExampleTest(unittest.TestCase):
+
+class ExampleTest(TestMinimal):
     '''An identity manager test Class'''
     def setUp(self):
         pass
