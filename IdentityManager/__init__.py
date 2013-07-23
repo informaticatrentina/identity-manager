@@ -29,6 +29,9 @@ from eve.auth import TokenAuth
 
 from IdentityManager import eve_settings
 
+# TODO: maybe make it configurable
+from IdentityManager.civiclinks.hooks import check_for_users_on_cl
+
 
 # TODO: move to a proper file
 class MyBasicAuth(TokenAuth):
@@ -73,6 +76,9 @@ def conf_logging(app):
 
 
 conf_logging(app)
+
+
+app.on_getting_users += check_for_users_on_cl
 
 
 if __name__ == '__main__':
