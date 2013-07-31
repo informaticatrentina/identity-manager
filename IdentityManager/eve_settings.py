@@ -106,6 +106,52 @@ users = {
             'required': False,
             'unique': False,
         },
+        # This will be the web-friendly username: eg: user-name
+        'slug': {
+            'type': 'string',
+            'minlength': 1,
+            'maxlength': 64,
+            'required': False,
+            'unique': True,
+        },
+        # A short bio
+        'biography': {
+            'type': 'string',
+            'minlength': 1,
+            'maxlength': 150,
+            'required': False,
+            'unique': False,
+        },
+        # Location
+        'location': {
+            'type': 'string',
+            'minlength': 1,
+            'maxlength': 128,
+            'required': False,
+            'unique': False,
+        },
+        'website': {
+            'type': 'string',
+            'minlength': 1,
+            'maxlength': 256,
+            'required': False,
+            'unique': False,
+        },
+        # photo
+        'photo': {
+            'type': 'string',
+            'minlength': 1,
+            'maxlength': 256,
+            'required': False,
+            'unique': False,
+        },
+        'user_tags': {
+            'type': 'string',
+            'minlength': 1,
+            'maxlength': 1024,
+            'required': False,
+            'unique': False,
+        },
     },
     'datasource': {
         'projection': {
@@ -116,6 +162,12 @@ users = {
             'born': 1,
             'created': 1,
             'updated': 1,
+            'slug': 1,
+            'biography': 1,
+            'location': 1,
+            'website': 1,
+            'photo': 1,
+            'user_tags': 1,
         },
     },
 }
