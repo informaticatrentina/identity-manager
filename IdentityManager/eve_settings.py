@@ -68,6 +68,7 @@ users = {
     # Schema definition, based on Cerberus grammar. Check the Cerberus project
     # (https://github.com/nicolaiarocci/cerberus) for details.
     'schema': {
+
         'username': {
             'type': 'string',
             'minlength': 1,
@@ -75,11 +76,13 @@ users = {
             'required': False,
             'unique': True,
         },
+
         'firstname': {
             'type': 'string',
             'minlength': 1,
             'maxlength': 64,
         },
+
         'lastname': {
             'type': 'string',
             'minlength': 1,
@@ -87,6 +90,7 @@ users = {
             'required': True,
             'unique': False,
         },
+
         'email': {
             'type': 'string',
             'minlength': 1,
@@ -94,6 +98,7 @@ users = {
             'required': True,
             'unique': True,
         },
+
         'sex': {
             'type': 'list',
             'allowed': ["M", "F"],
@@ -107,11 +112,13 @@ users = {
             'required': True,
             'unique': False,
         },
+
         'born': {
             'type': 'datetime',
             'required': False,
             'unique': False,
         },
+
         # This will be the web-friendly username: eg: user-name
         'slug': {
             'type': 'string',
@@ -120,6 +127,7 @@ users = {
             'required': False,
             'unique': True,
         },
+
         # A short bio
         'biography': {
             'type': 'string',
@@ -128,6 +136,7 @@ users = {
             'required': False,
             'unique': False,
         },
+
         # Location
         'location': {
             'type': 'string',
@@ -136,6 +145,7 @@ users = {
             'required': False,
             'unique': False,
         },
+
         'website': {
             'type': 'string',
             'minlength': 1,
@@ -143,6 +153,7 @@ users = {
             'required': False,
             'unique': False,
         },
+
         # photo
         'photo': {
             'type': 'string',
