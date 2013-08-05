@@ -94,6 +94,12 @@ users = {
             'required': True,
             'unique': True,
         },
+        'sex': {
+            'type': 'list',
+            'allowed': ["M", "F"],
+            'required': False,
+        },
+
         'password': {
             'type': 'string',
             'minlength': 1,
