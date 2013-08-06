@@ -162,10 +162,16 @@ users = {
             'required': False,
             'unique': False,
         },
-        'user_tags': {
-            'type': 'string',
-            'minlength': 1,
-            'maxlength': 1024,
+
+        'tags': {
+            'type': 'list',
+            'schema': {
+                'type': 'string',
+                'data_relation': {
+                    'collection': 'tags',
+                    'field': 'slug',
+                },
+            },
             'required': False,
             'unique': False,
         },
@@ -184,7 +190,7 @@ users = {
             'location': 1,
             'website': 1,
             'photo': 1,
-            'user_tags': 1,
+            'tags': 1,
             'sex': 1,
         },
     },
@@ -215,9 +221,55 @@ apps = {
     },
 }
 
+tags = {
+    'schema': {
+        'name': {
+            'type': 'string',
+            'minlength': 1,
+            'maxlength': 256,
+            'required': True,
+            'unique': False,
+        },
+        'slug': {
+            'type': 'string',
+            'minlength': 1,
+            'maxlength': 256,
+            'required': True,
+            'unique': False,
+        },
+        'scheme': {
+            'required': False,
+            'type': 'string',
+            'data_relation': {
+                'collection': 'schemes',
+                'field': 'name',
+            },
+        },
+        'weight': {
+            'type': 'integer',
+            'required': False,
+            'unique': False,
+        },
+    }
+}
+
+schemes = {
+    'schema': {
+        'name': {
+            'type': 'string',
+            'minlength': 1,
+            'maxlength': 256,
+            'required': True,
+            'unique': True,
+        },
+    },
+}
+
 # The DOMAIN dict explains which resources will be available and how they will
 # be accessible to the API consumer.
 DOMAIN = {
     'users': users,
     'apps': apps,
+    'tags': tags,
+    'schemes': schemes,
 }
