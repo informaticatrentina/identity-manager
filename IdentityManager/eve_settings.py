@@ -185,6 +185,7 @@ users = {
             'website': 1,
             'photo': 1,
             'user_tags': 1,
+            'sex': 1,
         },
     },
 }
