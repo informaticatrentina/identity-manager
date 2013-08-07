@@ -68,6 +68,7 @@ users = {
     # Schema definition, based on Cerberus grammar. Check the Cerberus project
     # (https://github.com/nicolaiarocci/cerberus) for details.
     'schema': {
+
         'username': {
             'type': 'string',
             'minlength': 1,
@@ -75,11 +76,13 @@ users = {
             'required': False,
             'unique': True,
         },
+
         'firstname': {
             'type': 'string',
             'minlength': 1,
             'maxlength': 64,
         },
+
         'lastname': {
             'type': 'string',
             'minlength': 1,
@@ -87,6 +90,7 @@ users = {
             'required': True,
             'unique': False,
         },
+
         'email': {
             'type': 'string',
             'minlength': 1,
@@ -94,6 +98,13 @@ users = {
             'required': True,
             'unique': True,
         },
+
+        'sex': {
+            'type': 'list',
+            'allowed': ["M", "F"],
+            'required': False,
+        },
+
         'password': {
             'type': 'string',
             'minlength': 1,
@@ -101,8 +112,66 @@ users = {
             'required': True,
             'unique': False,
         },
+
         'born': {
             'type': 'datetime',
+            'required': False,
+            'unique': False,
+        },
+
+        # This will be the web-friendly username: eg: user-name
+        'slug': {
+            'type': 'string',
+            'minlength': 1,
+            'maxlength': 64,
+            'required': False,
+            'unique': True,
+        },
+
+        # A short bio
+        'biography': {
+            'type': 'string',
+            'minlength': 1,
+            'maxlength': 150,
+            'required': False,
+            'unique': False,
+        },
+
+        # Location
+        'location': {
+            'type': 'string',
+            'minlength': 1,
+            'maxlength': 128,
+            'required': False,
+            'unique': False,
+        },
+
+        'website': {
+            'type': 'string',
+            'minlength': 1,
+            'maxlength': 256,
+            'required': False,
+            'unique': False,
+        },
+
+        # photo
+        'photo': {
+            'type': 'string',
+            'minlength': 1,
+            'maxlength': 256,
+            'required': False,
+            'unique': False,
+        },
+
+        'tags': {
+            'type': 'list',
+            'schema': {
+                'type': 'string',
+                'data_relation': {
+                    'collection': 'tags',
+                    'field': 'slug',
+                },
+            },
             'required': False,
             'unique': False,
         },
@@ -116,6 +185,13 @@ users = {
             'born': 1,
             'created': 1,
             'updated': 1,
+            'slug': 1,
+            'biography': 1,
+            'location': 1,
+            'website': 1,
+            'photo': 1,
+            'tags': 1,
+            'sex': 1,
         },
     },
 }
@@ -145,9 +221,55 @@ apps = {
     },
 }
 
+tags = {
+    'schema': {
+        'name': {
+            'type': 'string',
+            'minlength': 1,
+            'maxlength': 256,
+            'required': True,
+            'unique': False,
+        },
+        'slug': {
+            'type': 'string',
+            'minlength': 1,
+            'maxlength': 256,
+            'required': True,
+            'unique': False,
+        },
+        'scheme': {
+            'required': False,
+            'type': 'string',
+            'data_relation': {
+                'collection': 'schemes',
+                'field': 'name',
+            },
+        },
+        'weight': {
+            'type': 'integer',
+            'required': False,
+            'unique': False,
+        },
+    }
+}
+
+schemes = {
+    'schema': {
+        'name': {
+            'type': 'string',
+            'minlength': 1,
+            'maxlength': 256,
+            'required': True,
+            'unique': True,
+        },
+    },
+}
+
 # The DOMAIN dict explains which resources will be available and how they will
 # be accessible to the API consumer.
 DOMAIN = {
     'users': users,
     'apps': apps,
+    'tags': tags,
+    'schemes': schemes,
 }
