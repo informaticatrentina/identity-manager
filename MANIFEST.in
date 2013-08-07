@@ -1,3 +1,4 @@
+include version.txt
 include *.rst
 recursive-include IdentityManager/demo/data *.json
 recursive-include requirements *.txt
