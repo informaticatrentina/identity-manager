@@ -131,7 +131,7 @@ users = {
         # A short bio
         'biography': {
             'type': 'string',
-            'minlength': 1,
+            'minlength': 0,
             'maxlength': 150,
             'required': False,
             'unique': False,
@@ -140,7 +140,7 @@ users = {
         # Location
         'location': {
             'type': 'string',
-            'minlength': 1,
+            'minlength': 0,
             'maxlength': 128,
             'required': False,
             'unique': False,
@@ -148,7 +148,7 @@ users = {
 
         'website': {
             'type': 'string',
-            'minlength': 1,
+            'minlength': 0,
             'maxlength': 256,
             'required': False,
             'unique': False,
