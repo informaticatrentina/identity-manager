@@ -3,3 +3,7 @@ Flask == 0.9
 Flask-MongoKit == 0.6
 Flask-Script == 0.5.3
 requests == 1.2.3
+# Pin for MarkupSafe
+jinja2 == 2.7
+# Pin for jinja2???
+werkzeug==0.8.3
