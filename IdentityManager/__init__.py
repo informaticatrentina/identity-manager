@@ -80,6 +80,13 @@ conf_logging(app)
 
 app.on_getting_users += check_for_users_on_cl
 
+# Use eve-docs
+from flask.ext.bootstrap import Bootstrap
+from eve_docs import eve_docs
+
+Bootstrap(app)
+app.register_blueprint(eve_docs, url_prefix='/docs')
+
 
 if __name__ == '__main__':
     app.run()
