@@ -57,9 +57,9 @@ users = {
     'item_title': 'user',
 
     # by default the standard item entry point is defined as
-    # '/people/<ObjectId>/'. We leave it untouched, and we also enable an
+    # '/users/<ObjectId>/'. We leave it untouched, and we also enable an
     # additional read-only entry point. This way consumers can also perform GET
-    # requests at '/people/<lastname>/'.
+    # requests at '/users/<email>/'.
     'additional_lookup': {
         'url': '[\w]+',
         'field': 'email',
