@@ -61,7 +61,7 @@ users = {
     # additional read-only entry point. This way consumers can also perform GET
     # requests at '/users/<email>/'.
     'additional_lookup': {
-        'url': '[\w]+',
+        'url': '.*',
         'field': 'email',
     },
 
