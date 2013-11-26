@@ -78,7 +78,7 @@ def conf_logging(app):
 conf_logging(app)
 
 
-app.on_getting_users += check_for_users_on_cl
+app.on_fetch_resource_users += check_for_users_on_cl
 
 # Use eve-docs
 from flask.ext.bootstrap import Bootstrap
