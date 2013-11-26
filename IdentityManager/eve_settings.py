@@ -241,7 +241,7 @@ tags = {
             'required': False,
             'type': 'string',
             'data_relation': {
-                'collection': 'schemes',
+                'resource': 'schemes',
                 'field': 'name',
             },
         },
