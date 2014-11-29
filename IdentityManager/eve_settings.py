@@ -35,6 +35,9 @@ SERVER_NAME = 'localhost:8001'
 # api version
 API_VERSION = 'v1'
 
+#disable etag matching for PATCH api
+IF_MATCH = False
+
 # Enable reads (GET), inserts (POST) and DELETE for resources/collections
 # (if you omit this line, the API will default to ['GET'] and provide
 # read-only access to the endpoint).
@@ -98,7 +101,6 @@ users = {
             'required': True,
             'unique': True,
         },
-
         'sex': {
             'type': 'list',
             'allowed': ["M", "F"],
@@ -118,7 +120,6 @@ users = {
             'required': False,
             'unique': False,
         },
-
         # This will be the web-friendly username: eg: user-name
         'slug': {
             'type': 'string',
@@ -127,7 +128,10 @@ users = {
             'required': False,
             'unique': True,
         },
-
+        'status':{
+  		    'type': 'string',
+  	    	'maxlength': 4
+		},
         # A short bio
         'biography': {
             'type': 'string',
@@ -136,7 +140,6 @@ users = {
             'required': False,
             'unique': False,
         },
-
         # Location
         'location': {
             'type': 'string',
@@ -145,7 +148,6 @@ users = {
             'required': False,
             'unique': False,
         },
-
         'website': {
             'type': 'string',
             'minlength': 0,
@@ -153,7 +155,6 @@ users = {
             'required': False,
             'unique': False,
         },
-
         # photo
         'photo': {
             'type': 'string',
@@ -162,7 +163,46 @@ users = {
             'required': False,
             'unique': False,
         },
-
+        #profile information for infoTN
+	    'age-range':{
+	        'type':'string',
+	        'minlength': 0,
+	        'maxlength': 256,
+	        'required': False,
+	        'unique': False
+        },
+        #profile information for InfoTn
+        'public-authority': {
+	        'type': 'dict'
+        },
+        #registration source
+        'source': {
+	        'type': 'string',
+	        'minlength': 0,
+	        'maxlength': 256,
+	        'required': False,
+	        'unique': False
+        },
+        'last-login': {
+            'type': 'integer',
+            'required': False,
+   	        'unique': False,
+	    },
+	    'education-level': {
+            'type': 'string',
+	        'required': False,
+	        'unique': False
+        },
+        'citizenship': {
+	        'type': 'string',
+	        'required': False,
+	        'unique': False
+        },
+        'work':{
+            'type': 'string',
+            'required': False,
+            'unique': False
+        },
         'tags': {
             'type': 'list',
             'schema': {
@@ -192,6 +232,14 @@ users = {
             'photo': 1,
             'tags': 1,
             'sex': 1,
+            'status': 1,
+            'age-range': 1,
+            'public-authority': 1,
+            'source': 1,
+            'last-login': 1,
+            'education-level': 1,
+            'citizenship': 1,
+            'work': 1
         },
     },
 }
