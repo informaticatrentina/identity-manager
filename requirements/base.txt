@@ -1,9 +1,9 @@
-Eve == 0.1.1
+Eve == 0.4
 Flask == 0.10.1
 Flask-MongoKit == 0.6
 Flask-Script == 0.5.3
 requests == 1.2.3
 # Pin for MarkupSafe
-jinja2 == 2.7
+jinja2 == 2.7.3
 # Require eve-docs for generating docs
 Eve-docs == 0.1.0
