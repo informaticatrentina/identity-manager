@@ -32,7 +32,7 @@ det_url = 'https://www.civiclinks.it/it/l/s/get_user_details/'
 from flask import current_app as app
 
 auth = None
-verify = True
+verify = False
 
 # # If you are using the testing serve you may need an additional auth
 #
