@@ -171,6 +171,11 @@ users = {
 	        'required': False,
 	        'unique': False
         },
+        'age': {
+            'type': 'string',
+            'required': False,
+            'unique': False
+        },
         #profile information for InfoTn
         'public-authority': {
 	        'type': 'dict'
@@ -234,6 +239,7 @@ users = {
             'sex': 1,
             'status': 1,
             'age-range': 1,
+            'age': 1,
             'public-authority': 1,
             'source': 1,
             'last-login': 1,
