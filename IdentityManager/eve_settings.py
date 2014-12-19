@@ -208,6 +208,9 @@ users = {
             'required': False,
             'unique': False
         },
+        'profile-info': {
+      		'type': 'dict'
+        },
         'tags': {
             'type': 'list',
             'schema': {
@@ -245,7 +248,8 @@ users = {
             'last-login': 1,
             'education-level': 1,
             'citizenship': 1,
-            'work': 1
+            'work': 1,
+            'profile-info': 1
         },
     },
 }
