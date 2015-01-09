@@ -57,8 +57,8 @@ def on_insert_user_callback(items):
     else:
         pass
 
-def on_update_user_callback(items):
-    if 'password' in items:
-        items['password'] = enc_password = bcrypt.encrypt(items['password'], rounds=8)
+def on_update_user_callback(updates, original):
+    if 'password' in updates:
+        updates['password'] = enc_password = bcrypt.encrypt(updates['password'], rounds=8)
     else:
         pass
