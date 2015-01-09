@@ -52,13 +52,14 @@ def on_fetch_user(document):
             pass
 
 def on_insert_user_callback(items):
-    if 'password' in items:
-        items['password'] = enc_password = bcrypt.encrypt(items['password'], rounds=8)
+    item = items[0]
+    if 'password' in item:
+        item['password'] = bcrypt.encrypt(item['password'], rounds=8)
     else:
         pass
 
 def on_update_user_callback(updates, original):
     if 'password' in updates:
-        updates['password'] = enc_password = bcrypt.encrypt(updates['password'], rounds=8)
+        updates['password'] = bcrypt.encrypt(updates['password'], rounds=8)
     else:
         pass
