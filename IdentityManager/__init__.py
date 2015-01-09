@@ -30,7 +30,11 @@ from eve.auth import TokenAuth
 from IdentityManager import eve_settings
 
 # TODO: maybe make it configurable
-from IdentityManager.civiclinks.hooks import check_for_users_on_cl
+from IdentityManager.user_hooks import on_fetch_user
+
+from IdentityManager.user_hooks import on_insert_user_callback
+
+from IdentityManager.user_hooks import on_update_user_callback
 
 
 # TODO: move to a proper file
@@ -78,7 +82,10 @@ def conf_logging(app):
 conf_logging(app)
 
 
-app.on_fetch_resource_users += check_for_users_on_cl
+
+app.on_fetched_resource_users += on_fetch_user
+app.on_insert_users += on_insert_user_callback
+app.on_update_users += on_update_user_callback
 
 # Use eve-docs
 from flask.ext.bootstrap import Bootstrap

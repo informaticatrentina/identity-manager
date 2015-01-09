@@ -7,3 +7,4 @@ requests == 1.2.3
 jinja2 == 2.7.3
 # Require eve-docs for generating docs
 Eve-docs == 0.1.0
+py-bcrypt == 0.4
