@@ -33,5 +33,6 @@ def encrypt_all_password():
     if res.count():
         entries = res[:]
         for entry in entries:
-            newpassword = bcrypt.encrypt(entry['password'], rounds=8)
-            db.users.update({'_id': entry['_id']}, {'$set': {'password':newpassword}})
+            if entry['password'] != '! we use the civiclinks password':
+                newpassword = bcrypt.encrypt(entry['password'], rounds=8)
+                db.users.update({'_id': entry['_id']}, {'$set': {'password':newpassword}})
