@@ -17,6 +17,8 @@ Identity Manager Project
 TODO: replace this line with proper project description.
 '''
 
+import os
+os.environ['PYTHON_EGG_CACHE'] = "/var/tmp/.python-eggs"
 
 import pkg_resources
 pkg_resources.declare_namespace(__name__)
