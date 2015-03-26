@@ -211,6 +211,9 @@ users = {
         'profile-info': {
       		'type': 'dict'
         },
+        'site-last-login': {
+          'type': 'dict'
+        },
         'tags': {
             'type': 'list',
             'schema': {
@@ -249,7 +252,8 @@ users = {
             'education-level': 1,
             'citizenship': 1,
             'work': 1,
-            'profile-info': 1
+            'profile-info': 1,
+            'site-last-login': 1
         },
     },
 }
