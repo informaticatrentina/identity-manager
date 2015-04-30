@@ -94,6 +94,15 @@ users = {
             'unique': False,
         },
 
+        #This field is for user's nickname and it will be unique
+        'nickname': {
+            'type': 'string',
+            'minlength': 1,
+            'maxlength': 64,
+            'required': False,
+            'unique': True,
+        },
+
         'email': {
             'type': 'string',
             'minlength': 1,
@@ -214,6 +223,11 @@ users = {
         'site-last-login': {
           'type': 'dict'
         },
+        'type': {
+            'type': 'string',
+            'required': True,
+            'unique': False
+        },
         'tags': {
             'type': 'list',
             'schema': {
@@ -232,6 +246,7 @@ users = {
             'username': 1,
             'firstname': 1,
             'lastname': 1,
+            'nickname': 1,
             'email': 1,
             'born': 1,
             'created': 1,
@@ -253,7 +268,9 @@ users = {
             'citizenship': 1,
             'work': 1,
             'profile-info': 1,
-            'site-last-login': 1
+            'site-last-login': 1,
+            'site-user-info': 1,
+            'type': 1
         },
     },
 }
