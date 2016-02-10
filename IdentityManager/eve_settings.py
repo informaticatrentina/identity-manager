@@ -97,7 +97,7 @@ users = {
         #This field is for user's nickname and it will be unique
         'nickname': {
             'type': 'string',
-            'minlength': 1,
+            'minlength': 0,
             'maxlength': 64,
             'required': False,
             'unique': True,
@@ -109,6 +109,14 @@ users = {
             'maxlength': 64,
             'required': True,
             'unique': True,
+        },
+
+        'mobile': {
+            'type': 'string',
+            'minlength': 10,
+            'maxlength': 12,
+            'required': False,
+            'unique': False,
         },
         'sex': {
             'type': 'list',
@@ -218,9 +226,12 @@ users = {
             'unique': False
         },
         'profile-info': {
-      		'type': 'dict'
+            'type': 'string'
         },
         'site-last-login': {
+          'type': 'dict'
+        },
+        'site-user-info': {
           'type': 'dict'
         },
         'type': {
@@ -270,7 +281,8 @@ users = {
             'profile-info': 1,
             'site-last-login': 1,
             'site-user-info': 1,
-            'type': 1
+            'type': 1,
+            'mobile': 1
         },
     },
 }
@@ -352,3 +364,4 @@ DOMAIN = {
     'tags': tags,
     'schemes': schemes,
 }
+
